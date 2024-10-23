@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1C1F58;
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 14px;
+}
+.header-title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* FIM - Cabeçalho */
+
+/* Início design do registro */
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.1);
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  height: 80%;
+  border-radius: 10px;
+  background: white;
+}
+
+.header {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 12px;
+}
+
+.header span {
+  font-weight: 900;
+  font-size: 20px;
+  word-break: break-all;
+}
+
+#new, #btnFiltrar {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: rgb(57, 57, 226);
+  margin: 0;
+}
+
+.divTable {
+  padding: 10px;
+  width: auto; 
+  height: inherit; 
+  overflow: auto;
+}
+
+.divTable::-webkit-scrollbar {
+  width: 12px;
+  background-color: whitesmoke; 
+}
+
+.divTable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgray; 
+}
+
+table {
+  width: 100%;
+  border-spacing: 10px;
+  word-break: break-all;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: whitesmoke;
+}
+
+tr {
+  border-bottom: 1px solid rgb(238, 235, 235)!important;
+}
+
+tbody tr td {
+  vertical-align: text-top;
+  padding: 6px;
+  max-width: 50px;
+}
+
+thead tr th {
+  padding: 5px;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+tbody tr {
+  margin-bottom: 50px;
+}
+
+thead tr th.acao {
+  width: 100px!important;
+  text-align: center;
+}
+
+tbody tr td.acao {
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header span {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #new, #btnFiltrar {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .totais {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    font-size: 10px;
+  }
+  
+  .header span {
+    font-size: 15px;
+  }
+
+  #new, #btnFiltrar {
+    width: 100%; /* Botões ocupam toda a largura */
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  thead tr th.acao {
+    width: auto!important;
+  }
+  
+  td button i {
+    font-size: 20px!important;
+  }
+
+  td button i:first-child {
+    margin-right: 0;
+  }
+
+  .modal {
+    width: 90%!important;
+  }
+
+  .modal label {
+    font-size: 12px!important;
+  }
+
+  /* Estilos da tabela */
+  table {
+    font-size: 12px; /* Tamanho da fonte da tabela reduzido */
+  }
+
+  tbody tr td {
+    padding: 4px; /* Reduz o padding */
+  }
+
+  .totais {
+    padding: 8px; /* Reduz o padding das totais */
+    font-size: 12px; /* Ajusta o tamanho da fonte */
+  }
+}
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.modal label {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.modal select,
+.modal input {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px; 
+  margin-bottom: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+.modal button {
+  width: 100%;
+  margin: 10px auto;
+  outline: none;
+  border-radius: 20px; 
+  padding: 5px 10px; 
+  border: none;
+  background-color: rgb(57, 57, 226);
+  color: white;
+}
+
+.active {
+  display: flex;
+}
+
+.active .modal {
+  animation: modal .4s;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+td button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+td button i {
+  font-size: 25px;
+}
+
+td button i:first-child {
+  margin-right: 10px;
+}
+
+td button i.bx-edit {
+  color: #0000AA;
+}
+
+td button i.bx-trash {
+  color: #AA0000;
+}
+
+/* Fim design do registro */
+
+/* Início - Parte de excluir */
+.confirm-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000;
+}
+
+.confirm-modal {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirm-modal p {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.confirm-modal .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.confirm-modal button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 120px;
+}
+
+#confirmYes {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#confirmYes:hover {
+    background-color: #c0392b;
+}
+
+#confirmNo {
+    background-color: #3498db;
+    color: white;
+}
+
+#confirmNo:hover {
+    background-color: #2980b9;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.confirm-modal-container.active {
+    display: flex;
+}
+
+.confirm-modal-container.active .confirm-modal {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Cores retirar e adicionar saldo */
+.saldo-adicionado {
+    color: green;
+}
+
+.saldo-retirado {
+    color: red;
+}
+
+/* Estilizando botão filtrar */
+#btnFiltrar {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: rgb(57, 57, 226);
+}
+
+.totais {
+  margin: 20px 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.totais h2 {
+  margin-bottom: 10px;
+}
+
+.totais p {
+  font-size: 16px;
+}
+
+#totalNegativo {
+  color: red;
+}
+
+#totalPositivo {
+  color: green;
+}
+
+#saldoTotal {
+  color: blue;
+}
+
+.total1 {
+  color: chocolate;
+}

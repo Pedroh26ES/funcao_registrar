@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Dinheiro 💸</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="header-title">HORIZONTE FINANCEIRO</h1>
+    </header>
+    <div class="container">
+        <div class="header">
+            <span>Registrar Dinheiro 💸</span>
+            <button onclick="openModal()" id="new">Registrar</button>
+            <button id="btnFiltrar">Filtrar</button>
+        </div>
+
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Atual</th>
+                        <th>Categoria</th>
+                        <th>Saldo</th>
+                        <th class="acao">Editar</th>
+                        <th class="acao">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="registroTabela">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="totais">
+            <h2 class="total1">Totais</h2>
+            <p><b>Total Positivo: <span id="totalPositivo">R$ 0.00</b></span></p>
+            <p><b>Total Negativo: <span id="totalNegativo">R$ 0.00</b></span></p>
+            <p><b>Saldo Total: <span id="saldoTotal">R$ 0.00</b><span></p>
+        </div>
+
+        <div class="modal-container">
+            <div class="modal">
+                <form onsubmit="saveRecord(event)">
+                    <label for="data">Data Atual</label>
+                    <input id="data" type="date" required />
+
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" required>
+                        <option value=""><b>✔️ Selecione uma categoria ✔️</b></option>
+                        <option value="Alimentação">🍳 Alimentação</option>
+                        <option value="Automóvel">🚗 Automóvel</option>
+                        <option value="Trabalho">💼 Trabalho</option>
+                        <option value="Educação">👨‍🎓 Educação</option>
+                        <option value="Casa">🏠 Casa ou Aluguel</option>
+                        <option value="Contas">📉 Contas</option>
+                        <option value="Impostos">💲 Impostos</option>
+                        <option value="Compras">🛒 Compras</option>
+                        <option value="Transporte">🚌 Transporte</option>
+                        <option value="Outros">❓ Outros</option>
+                    </select>
+
+                    <label for="saldo">Saldo</label>
+                    <input id="saldo" type="number" required />
+
+                    <button type="submit" id="btnSalvar">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="confirmModal" class="confirm-modal-container">
+            <div class="confirm-modal">
+                <p>Tem certeza que deseja <b>EXCLUIR</b> este registro?</p>
+                <div class="button-group">
+                    <button id="confirmYes">Sim</button>
+                    <button id="confirmNo">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
